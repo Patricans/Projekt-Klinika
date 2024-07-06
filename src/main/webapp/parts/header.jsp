@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!doctype html>
 <html lang="pl" data-bs-theme="dark" class="h-100">
@@ -14,47 +14,69 @@
 </head>
 <body class="d-flex flex-column h-100 flex-nowrap">
 <main class="flex-shrink-0">
-<nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">System zarządzania kliniką</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">System zarządzania kliniką</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="mainnav">
-            <ul class="navbar-nav me-auto mb-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Strona główna kliniki</a>
-                </li>
-                <sec:authorize access="hasAuthority('PATIENT')">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Strefa pacjenta</a>
-                </li>
-                </sec:authorize>
-                <sec:authorize access="hasAuthority('DOCTOR')">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Strefa lekarza</a>
-                </li>
-                </sec:authorize>
-                <sec:authorize access="hasAuthority('ADMIN')">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Strefa administratora</a>
-                </li>
-                </sec:authorize>
-                <sec:authorize access="hasAuthority('NURSE')">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Strefa pielęgniarki</a>
-                </li>
-                </sec:authorize>
-                <sec:authorize access="isAuthenticated()">
-                <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/wyloguj'/>">Wyloguj</a>
-                </li>
-                </sec:authorize>
-            </ul>
+            <div class="collapse navbar-collapse" id="mainnav">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strona główna kliniki</a>
+                    </li>
+                    <sec:authorize access="hasAuthority('PATIENT')">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Strefa pacjenta</a>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="hasAuthority('DOCTOR')">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Strefa lekarza</a>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="hasAuthority('ADMIN')">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Strefa administratora</a>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="hasAuthority('NURSE')">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Strefa pielęgniarki</a>
+                        </li>
+                    </sec:authorize>
+
+                    <!-- <sec:authorize access="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<c:url value='/wyloguj'/>">Wyloguj</a>
+                        </li>
+                    </sec:authorize> -->
+
+                    <sec:authorize access="isAuthenticated()">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Zalogowano jako: <sec:authentication property="name"/>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="<c:url value='/wyloguj'/>">Wyloguj</a></li>
+
+                            </ul>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="!isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logowanie">ZALOGUJ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/rejestracja">Rejestracja użytkownika</a>
+                        </li>
+                    </sec:authorize>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <sec:authorize access="hasAuthority('PATIENT')">
 
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
@@ -85,7 +107,7 @@
             </div>
         </div>
     </nav>
-</sec:authorize>
+    </sec:authorize>
 
     <sec:authorize access="hasAuthority('NURSE')">
 
@@ -117,5 +139,5 @@
             </div>
         </div>
     </nav>
-</sec:authorize>
-    <h2>Zalogowano jako: <sec:authentication property="name"/> </h2>
+    </sec:authorize>
+    <h2>Zalogowano jako: <sec:authentication property="name"/></h2>
