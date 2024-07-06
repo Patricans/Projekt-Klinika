@@ -1,0 +1,41 @@
+ .card {
+    display: inline-block;
+}
+
+.container {
+    margin: auto !important;
+}
+
+.subnavbar {
+    margin-top: 48px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-register {
+    max-width: 400px;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pl" data-bs-theme="dark" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Zaopatrzenie apteki</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="d-flex flex-column h-100 flex-nowrap">
+<main class="flex-shrink-0">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">System zarządzania kliniką</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainnav">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strona główna kliniki</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa pacjenta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa lekarza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa administratora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa pielęgniarki</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Strefa lekarza</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="subnavbar">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mój profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Grafik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wystaw recepte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Historia recept</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wizyty</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Twój profil</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="https://dummyimage.com/400x400/cccccc/0011ff">
+                    <BR/>
+                    <div class ="p-2">
+                        Twoja ocena: <span class="badge text-bg-warning"> 7.5 </span>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <input type="file" value="Wybierz plik" id="photo"/>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" value="Wyślij nowe zdjęcie"/>
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+                <div class="col-6">
+
+
+                    <!-- Poprawić ID -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Adres email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" value="stefan@google.com" readonly="readonly">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Hasło</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Potwierdź hasło</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Imie</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="stefan"
+                                   readonly="readonly">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Nazwisko</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="stefanovicz"
+                                   readonly="readonly">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">PESEL</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1 "
+                                   value="54803797895463789" readonly="readonly">
+                        </div>
+                        <!-- <div class = "btn-group" role="group" >
+                             <button type="submit" class="btn btn-primary mx-2">Wyślij</button>
+                             <button  type="submit" class="btn btn-danger float-end">Wyczyść</button>
+                         </div> -->
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container">
+        <div class="float-end">
+            <a class="mx-3" href="#TODO">Dane kontaktowe</a>
+            <a class="mx-3" href="#TODO">Polityka prywatności</a>
+            <a class="mx-3" href="#TODO">Regulamin świadczenia usług</a>
+        </div>
+
+        <span class="text-body-secondary float-start mx-4">System zarządzania kliniką 0.42</span>
+    </div>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -8,6 +8,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +31,9 @@ public class User {
 
     @Getter
     @Setter
-    private Role role;
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.PATIENT;
+
 
     @Getter
     @Setter
@@ -46,7 +49,8 @@ public class User {
 
     @Setter
     @Getter
-    private Status status;
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.NEW;
 
     @Transient
     @Getter

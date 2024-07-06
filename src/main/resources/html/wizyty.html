@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pl" data-bs-theme="dark" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Zaopatrzenie apteki</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="d-flex flex-column h-100 flex-nowrap">
+<main class="flex-shrink-0">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">System zarządzania kliniką</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainnav">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strona główna kliniki</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa pacjenta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa lekarza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa administratora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strefa pielęgniarki</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Strefa lekarza</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="subnavbar">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mój profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Dyżury</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wystaw recepte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Historia recept</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wizyty</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Twoje wizyty</h1>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Adam Kowalski</h5>
+                    <small>2024-07-03 18:00</small>
+                </div>
+                <p class="mb-1">Pacjent cierpi na wypalenie zawodowe i przepisano mu 3 monsterki</p>
+                <small>wystawiono receptę na 3 leki</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Adam Kowalski</h5>
+                    <small>2024-07-03 18:15</small>
+                </div>
+                <p class="mb-1"><i>brak notatek</i></p>
+                <small>nie wystawiono recept</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-body-secondary">3 days ago</small>
+                </div>
+                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                <small class="text-body-secondary">And some muted small print.</small>
+            </a>
+        </div>
+    </div>
+
+
+</main>
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container">
+        <div class="float-end">
+            <a class="mx-3" href="#TODO">Dane kontaktowe</a>
+            <a class="mx-3" href="#TODO">Polityka prywatności</a>
+            <a class="mx-3" href="#TODO">Regulamin świadczenia usług</a>
+        </div>
+
+        <span class="text-body-secondary float-start mx-4">System zarządzania kliniką 0.42</span>
+    </div>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
