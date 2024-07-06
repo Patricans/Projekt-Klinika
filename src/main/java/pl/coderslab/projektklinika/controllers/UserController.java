@@ -1,6 +1,7 @@
 package pl.coderslab.projektklinika.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -53,6 +54,11 @@ public class UserController {
         model.addAttribute("title", "Logowanie do systemu");
 
         return "logowanie";
+    }
+    @RequestMapping(value="/wyloguj", method = RequestMethod.GET)
+    public String logout(Model model) {
+        SecurityContextHolder.getContext().setAuthentication(null); // wyloguj uzytkownika jestli jestes zalogowany
+        return "redirect:/";
     }
 
 }

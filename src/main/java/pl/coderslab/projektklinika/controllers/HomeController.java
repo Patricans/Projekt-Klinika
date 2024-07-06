@@ -9,4 +9,8 @@ public class HomeController {
     public String index(){
         return "redirect:/logowanie";
     }
+    @RequestMapping(value="/home")
+    public String home(){
+        return "home";
+    }
 }

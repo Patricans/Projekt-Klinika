@@ -57,6 +57,20 @@ public class User {
     @Setter
     private String passwordConfirm;
 
+    public boolean isPatient(){
+        return role.equals(Role.PATIENT);
+    }
+    public boolean isNurse(){
+        return role.equals(Role.NURSE);
+    }
+    public boolean isDoctor(){
+        return role.equals(Role.DOCTOR);
+    }
+    public boolean isAdmin(){
+        return role.equals(Role.ADMIN);
+    }
+
+
     public enum Status {
         ACTIVE, LOCKED, NEW
     }

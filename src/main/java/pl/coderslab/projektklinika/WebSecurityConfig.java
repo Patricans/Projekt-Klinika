@@ -54,13 +54,15 @@ public class WebSecurityConfig {
                         .requestMatchers("/nurse/**").hasAnyRole("NURSE")
                         .requestMatchers("/doctor/**").hasAnyRole("DOCTOR")
                         .requestMatchers("/logowanie","/logowanie.jsp").permitAll()
-                        .requestMatchers("/rejestracja","/rejestracja.jsp").permitAll()
+                        .requestMatchers("/rejestracja","/rejestracja.jsp", "/home","/home.jsp", "/wyloguj").permitAll()
                         .requestMatchers("/error","/","/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
                 ).formLogin((o) -> o
-                        .loginPage("/logowanie").permitAll()
+                        .loginPage("/logowanie").defaultSuccessUrl("/home").permitAll()
                 ).logout((o) -> o
                         .logoutUrl("/wyloguj")
-                        .deleteCookies("JSESSIONID"))
+                        .deleteCookies("JSESSIONID")
+                        .permitAll()
+                )
                 .sessionManagement(httpSecuritySessionManagementConfigurer ->
                         httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.ALWAYS));
 
