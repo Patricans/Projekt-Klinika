@@ -7,11 +7,11 @@
         <div class="form-group ${error != null ? 'has-error': ''}">
             <span>${message}</span>
             <div class="form-floating">
-                <input type="email" class="form-control" id="username" placeholder="name@example.com">
+                <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com">
                 <label for="username">Adres email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" placeholder="hasło">
+                <input type="password" class="form-control" id="password" name="password" placeholder="hasło">
                 <label for="password">Hasło</label>
             </div>
             <span>${error}</span>
