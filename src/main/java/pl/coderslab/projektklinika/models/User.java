@@ -11,6 +11,7 @@ public class User {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private Long id;
 
     @Getter
@@ -54,12 +55,12 @@ public class User {
 
     public enum Status {
         ACTIVE, LOCKED, NEW
-    };
+    }
 
     public enum Role {
         DOCTOR,
         PATIENT,
         NURSE,
         ADMIN
-    };
+    }
 }
