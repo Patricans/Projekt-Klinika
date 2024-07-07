@@ -59,11 +59,11 @@
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Strefa pacjenta</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar1">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="subnavbar">
+            <div class="collapse navbar-collapse" id="subnavbar1">
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Twój profil</a>
@@ -91,11 +91,11 @@
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Strefa pielegniarska</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="subnavbar">
+            <div class="collapse navbar-collapse" id="subnavbar2">
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Twój profil</a>
@@ -104,7 +104,7 @@
                         <a class="nav-link" href="#">Magazyn Apteki</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Grafik</a>
+                        <a class="nav-link" href="/dyzury">Grafik</a>
                     </li>
                 </ul>
             </div>
@@ -114,14 +114,14 @@
 
 <sec:authorize access="hasAuthority('DOCTOR')">
 
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar1">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Strefa lekarska</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar3">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="subnavbar">
+            <div class="collapse navbar-collapse" id="subnavbar3">
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Twój profil</a>
@@ -136,7 +136,7 @@
                         <a class="nav-link" href="#">Pacjenci</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Grafik</a>
+                        <a class="nav-link" href="/dyzury">Grafik</a>
                     </li>
                 </ul>
             </div>

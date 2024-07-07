@@ -54,6 +54,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/nurse/**").hasAnyRole("NURSE")
                         .requestMatchers("/doctor/**").hasAnyRole("DOCTOR")
                         .requestMatchers("/logowanie","/logowanie.jsp").permitAll()
+                        .requestMatchers("/dyzury", "/schedule.jsp", "/dyzury.jsp").hasAnyRole("NURSE","DOCTOR")
                         .requestMatchers("/rejestracja","/rejestracja.jsp", "/home","/home.jsp", "/wyloguj", "/lokalizacja", "/lokalizacja.jsp").permitAll()
                         .requestMatchers("/profile.jsp","/profile", "/zmien_haslo", "/zmien_haslo.jsp").authenticated()
                         .requestMatchers("/error","/","/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
