@@ -12,7 +12,7 @@
 <%@attribute name="placeholder" required="false" type="java.lang.String"%>
 <%@attribute name="label" required="false" type="java.lang.String"%>
 <%@attribute name="type" required="true" type="java.lang.String"%>
-
+<%@attribute name="readonly" required="false" type="java.lang.Boolean"%>
 
 <spring:bind path="${name}">
         <c:set var="key" value="form.${name}.label" />
@@ -23,16 +23,16 @@
         <label for="${name}" class="form-label"> ${label} <c:if test="${required}"><span class="required">*</span></c:if></label>
         <c:choose>
             <c:when test="${not empty fn:trim(localError)}">
-                <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}" class="form-control ${cssclass} is-invalid"/>
+                <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}" class="form-control ${cssclass} is-invalid" readonly="${readonly}"/>
                 <div class="invalid-feedback">
                     <springForm:errors path="${name}" />
                 </div>
             </c:when>
             <c:when test="${isFormResend}">
-                <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}" class="form-control is-valid ${cssclass}"/>
+                <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}" class="form-control is-valid ${cssclass}" readonly="${readonly}"/>
             </c:when>
             <c:otherwise>
-                <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}" class="form-control ${cssclass}"/>
+                <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}" class="form-control ${cssclass}" readonly="${readonly}"/>
             </c:otherwise>
         </c:choose>
 </spring:bind>

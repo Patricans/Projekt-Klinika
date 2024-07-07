@@ -55,9 +55,10 @@ public class WebSecurityConfig {
                         .requestMatchers("/doctor/**").hasAnyRole("DOCTOR")
                         .requestMatchers("/logowanie","/logowanie.jsp").permitAll()
                         .requestMatchers("/rejestracja","/rejestracja.jsp", "/home","/home.jsp", "/wyloguj", "/lokalizacja", "/lokalizacja.jsp").permitAll()
+                        .requestMatchers("/profile.jsp","/profile", "/zmien_haslo", "/zmien_haslo.jsp").authenticated()
                         .requestMatchers("/error","/","/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
                 ).formLogin((o) -> o
-                        .loginPage("/logowanie").defaultSuccessUrl("/home").permitAll()
+                        .loginPage("/logowanie").defaultSuccessUrl("/profile").permitAll()
                 ).logout((o) -> o
                         .logoutUrl("/wyloguj")
                         .deleteCookies("JSESSIONID")

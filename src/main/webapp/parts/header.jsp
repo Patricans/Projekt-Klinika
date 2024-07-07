@@ -15,46 +15,46 @@
 </head>
 <body class="d-flex flex-column h-100 flex-nowrap">
 <main class="flex-shrink-0">
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">System zarządzania kliniką</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">System zarządzania kliniką</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="mainnav">
-                <ul class="navbar-nav me-auto mb-2">
+        <div class="collapse navbar-collapse" id="mainnav">
+            <ul class="navbar-nav me-auto mb-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Strona główna kliniki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logowanie">Lokalizacja</a>
+                </li>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Zalogowano jako: <sec:authentication property="name"/>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="<c:url value='/wyloguj'/>">Wyloguj</a></li>
+
+                        </ul>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="!isAuthenticated()">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Strona główna kliniki</a>
+                        <a class="nav-link" href="/logowanie">Zaloguj</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logowanie">Lokalizacja</a>
+                        <a class="nav-link" href="/rejestracja">Rejestracja użytkownika</a>
                     </li>
-                    <sec:authorize access="isAuthenticated()">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Zalogowano jako: <sec:authentication property="name"/>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<c:url value='/wyloguj'/>">Wyloguj</a></li>
-
-                            </ul>
-                        </li>
-                    </sec:authorize>
-                    <sec:authorize access="!isAuthenticated()">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logowanie">Zaloguj</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/rejestracja">Rejestracja użytkownika</a>
-                        </li>
-                    </sec:authorize>
-                </ul>
-            </div>
+                </sec:authorize>
+            </ul>
         </div>
-    </nav>
-    <sec:authorize access="hasAuthority('PATIENT')">
+    </div>
+</nav>
+<sec:authorize access="hasAuthority('PATIENT')">
 
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
         <div class="container-fluid">
@@ -66,7 +66,7 @@
             <div class="collapse navbar-collapse" id="subnavbar">
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profil pacjenta</a>
+                        <a class="nav-link" href="/profile">Twój profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Umów się na wizytę</a>
@@ -84,9 +84,9 @@
             </div>
         </div>
     </nav>
-    </sec:authorize>
+</sec:authorize>
 
-    <sec:authorize access="hasAuthority('NURSE')">
+<sec:authorize access="hasAuthority('NURSE')">
 
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
         <div class="container-fluid">
@@ -98,7 +98,7 @@
             <div class="collapse navbar-collapse" id="subnavbar">
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Twój profil</a>
+                        <a class="nav-link" href="/profile">Twój profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Magazyn Apteki</a>
@@ -110,9 +110,9 @@
             </div>
         </div>
     </nav>
-    </sec:authorize>
+</sec:authorize>
 
-    <sec:authorize access="hasAuthority('DOCTOR')">
+<sec:authorize access="hasAuthority('DOCTOR')">
 
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
         <div class="container-fluid">
@@ -124,7 +124,7 @@
             <div class="collapse navbar-collapse" id="subnavbar">
                 <ul class="navbar-nav me-auto mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Twój profil</a>
+                        <a class="nav-link" href="/profile">Twój profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Wystaw receptę</a>
@@ -142,5 +142,7 @@
             </div>
         </div>
     </nav>
-    </sec:authorize>
-    <h2>Zalogowano jako: <sec:authentication property="name"/></h2>
+</sec:authorize>
+<c:if test="${not empty flashMessage}">
+    <div class="alert ${flashClass}" >${flashMessage}</div>
+</c:if>

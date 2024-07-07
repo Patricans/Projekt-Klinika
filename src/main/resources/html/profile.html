@@ -37,6 +37,7 @@
             max-width: 400px;
             padding: 1rem;
         }
+
         h1 {
             text-align: center;
         }
@@ -107,46 +108,61 @@
         </div>
     </nav>
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+    <div class="container">
 
-        <div class="container">
+        <div class="row">
             <h1>Twój profil</h1>
-            <div class="container form-register">
+            <div class="container form-register col-6">
                 <!-- Poprawić ID -->
                 <form>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Adres email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="stefan@google.com" readonly="readonly">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                               value="stefan@google.com" readonly="readonly">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Hasło</label>
+                        <label for="exampleInputPassword1" class="form-label">Imie</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" value="stefan"
+                               readonly="readonly">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Nazwisko</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" value="stefanovicz"
+                               readonly="readonly">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">PESEL</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1 " value="54803797895463789"
+                               readonly="readonly">
+                    </div>
+                </form>
+
+            </div>
+            <div class="container form-register col-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Stare Hasło</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Nowe Hasło</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Potwierdź hasło</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Imie</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" value="stefan" readonly="readonly" >
+                    <div class="btn-group w-100 my-3" role="group">
+                        <button class="btn btn-outline-warning  py-2 mx-2" type="submit">Zmień hasło</button>
+
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Nazwisko</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" value="stefanovicz" readonly="readonly">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">PESEL</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1 " value="54803797895463789" readonly="readonly">
-                    </div>
-                   <!-- <div class = "btn-group" role="group" >
-                        <button type="submit" class="btn btn-primary mx-2">Wyślij</button>
-                        <button  type="submit" class="btn btn-danger float-end">Wyczyść</button>
-                    </div> -->
+
+                </form>
 
             </div>
 
-            </form>
         </div>
     </div>
     </div>
