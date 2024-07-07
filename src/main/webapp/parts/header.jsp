@@ -27,33 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Strona główna kliniki</a>
                     </li>
-                    <sec:authorize access="hasAuthority('PATIENT')">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Strefa pacjenta</a>
-                        </li>
-                    </sec:authorize>
-                    <sec:authorize access="hasAuthority('DOCTOR')">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Strefa lekarza</a>
-                        </li>
-                    </sec:authorize>
-                    <sec:authorize access="hasAuthority('ADMIN')">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Strefa administratora</a>
-                        </li>
-                    </sec:authorize>
-                    <sec:authorize access="hasAuthority('NURSE')">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Strefa pielęgniarki</a>
-                        </li>
-                    </sec:authorize>
-
-                    <!-- <sec:authorize access="isAuthenticated()">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:url value='/wyloguj'/>">Wyloguj</a>
-                        </li>
-                    </sec:authorize> -->
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logowanie">Lokalizacja</a>
+                    </li>
                     <sec:authorize access="isAuthenticated()">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -66,9 +42,6 @@
                             </ul>
                         </li>
                     </sec:authorize>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logowanie">Lokalizacja</a>
-                        </li>
                     <sec:authorize access="!isAuthenticated()">
                         <li class="nav-item">
                             <a class="nav-link" href="/logowanie">Zaloguj</a>
@@ -105,7 +78,7 @@
                         <a class="nav-link" href="#">Moje recepty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Leki dostępne w aptece</a>
+                        <a class="nav-link" href="#">Apteka</a>
                     </li>
                 </ul>
             </div>
@@ -128,16 +101,7 @@
                         <a class="nav-link" href="#">Profil pielegniarki</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Umów się na wizytę</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Moje wizyty</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Moje recepty</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Leki dostępne w aptece</a>
+                        <a class="nav-link" href="#">Magazyn Apteki</a>
                     </li>
                 </ul>
             </div>
