@@ -11,6 +11,7 @@
     <title>${title}</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
 </head>
 <body class="d-flex flex-column h-100 flex-nowrap">
 <main class="flex-shrink-0">
@@ -65,9 +66,12 @@
                             </ul>
                         </li>
                     </sec:authorize>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logowanie">Lokalizacja</a>
+                        </li>
                     <sec:authorize access="!isAuthenticated()">
                         <li class="nav-item">
-                            <a class="nav-link" href="/logowanie">ZALOGUJ</a>
+                            <a class="nav-link" href="/logowanie">Zaloguj</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/rejestracja">Rejestracja użytkownika</a>

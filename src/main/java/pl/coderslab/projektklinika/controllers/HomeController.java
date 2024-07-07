@@ -13,4 +13,8 @@ public class HomeController {
     public String home(){
         return "home";
     }
+    @RequestMapping(value="/lokalizacja")
+    public String lokalizacja(){
+        return "lokalizacja";
+    }
 }
