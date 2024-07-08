@@ -28,7 +28,7 @@
                     <a class="nav-link" href="#">Strona główna kliniki</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logowanie">Lokalizacja</a>
+                    <a class="nav-link" href="/lokalizacja">Lokalizacja</a>
                 </li>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item dropdown">
