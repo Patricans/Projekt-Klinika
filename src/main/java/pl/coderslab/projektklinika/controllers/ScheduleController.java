@@ -33,6 +33,7 @@ public class ScheduleController {
         model.addAttribute("schedules", schedules);
         model.addAttribute("user", user);
         model.addAttribute("scheduleCount", schedules.size());
+        model.addAttribute("title", "Grafik");
         return "schedule";
     }
 }

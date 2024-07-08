@@ -33,6 +33,7 @@ public class UserController {
     @RequestMapping(value = "/rejestracja", method = RequestMethod.GET)
     public String rejestracja(Model model) {
         model.addAttribute("userForm", new User());
+        model.addAttribute("title", "Rejestracja");
         return "rejestracja";
     }
 
@@ -41,6 +42,7 @@ public class UserController {
         userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("isFormResend", true);
+            model.addAttribute("title", "Rejestracja");
             return "rejestracja";
 
         }
@@ -71,6 +73,7 @@ public class UserController {
         User user = userService.findByEmail(userDetails.getUsername());
         model.addAttribute("userForm", user);
         model.addAttribute("passwordChange", new PasswordChangeForm());
+        model.addAttribute("title", "Twój Profil");
         return "profile";
     }
     @RequestMapping(value = "/zmien_haslo", method = RequestMethod.POST)

@@ -4,11 +4,9 @@
 
 <div class="container" style="text-align: center">
     <div id="map" style="text-align:center; margin-top:100px !important">
-
         <iframe width="100%" height="550" id="iframe-map"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=16.180586814880375%2C54.186184231960716%2C16.18766784667969%2C54.18889624465653&amp;layer=mapnik"
                 style="border: 1px solid black; margin:auto; display:block;"></iframe>
-
     </div>
     <small >
         <a href="https://www.openstreetmap.org/#map=18/54.18754/16.18413">Wyświetl większą mapę</a>
