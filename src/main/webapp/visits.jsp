@@ -6,7 +6,7 @@
     <h1>Twoje wizyty</h1>
     <div class="list-group">
         <c:forEach items="${visits}" var="i">
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/doktor/wizyta/${i.id}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${i.patient.first_name} ${i.patient.last_name}</h5>
                     <small>

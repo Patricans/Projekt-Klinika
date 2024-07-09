@@ -1,8 +1,10 @@
 package pl.coderslab.projektklinika.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
+@Getter
 @Table(name = "drugs")
 public class Drug {
     @Id

@@ -10,4 +10,8 @@ import java.util.List;
 public interface VisitRepository extends CrudRepository<Visit, Integer> {
     @Query("SELECT v FROM Visit v WHERE v.doctor = :doctor")
     List<Visit> getDoctorVisits(User doctor);
+    @Query("SELECT v FROM Visit v WHERE v.id = :id AND v.doctor = :doctor")
+    Visit getVisitById(int id, User doctor);
+    @Query("SELECT v FROM Visit v WHERE v.patient = :patient ORDER BY v.startDate DESC")
+    List<Visit> getPatientVisits(User patient);
 }

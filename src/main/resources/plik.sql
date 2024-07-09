@@ -59,7 +59,7 @@ select * from drugs;
 insert into drugs(name, vendor, stock) VALUES('Monster Doctor', 'Monster Energy', 555);
 
 insert into receipt_drugs(drug_id, amount, expiration_date, bought, last_purchased, ereceipt_id) VALUES
-    (1, 5, '2024-11-10 12:00', 1, null, 1);
+    (1, 15, '2024-11-10 12:00', 1, null, 1);
 
 select * from receipt_drugs;
 select * from e_receipt;
