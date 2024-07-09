@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <title>${title}</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom.css">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
 </head>
 <body class="d-flex flex-column h-100 flex-nowrap">
@@ -30,6 +30,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/lokalizacja">Lokalizacja</a>
                 </li>
+                </ul> <ul class="navbar-nav ml-auto mb-2">
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -114,7 +115,7 @@
 
 <sec:authorize access="hasAuthority('DOCTOR')">
 
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar1">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm subnavbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Strefa lekarska</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="subnavbar3">
@@ -127,10 +128,10 @@
                         <a class="nav-link" href="/profile">Twój profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Wystaw receptę</a>
+                        <a class="nav-link" href="/doktor/wizyty">Wizyty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Historia recept</a>
+                        <a class="nav-link" href="#">Recepty</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pacjenci</a>

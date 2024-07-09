@@ -12,7 +12,7 @@
     </div>
 </footer>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

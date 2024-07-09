@@ -7,7 +7,7 @@
 <%@ include file="parts/header.jsp" %>
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
     <div class="container">
-        <h1>Rejestracja użytkownika</h1>
+        <h1 style="margin-top: 50px;">Rejestracja użytkownika</h1>
         <div class="container form-register">
             <form:form method="POST" modelAttribute="userForm">
             <div class="mb-3">
