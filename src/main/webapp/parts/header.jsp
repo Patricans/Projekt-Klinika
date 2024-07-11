@@ -79,13 +79,13 @@
                         <a class="nav-link" aria-current="page" href="#">Umów się na wizytę</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Moje wizyty</a>
+                        <a class="nav-link" href="/pacjent/wizyty/aktualne">Moje wizyty</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pacjent/recepty">Moje recepty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Apteka</a>
+                        <a class="nav-link" href="/apteka">Apteka</a>
                     </li>
                 </ul>
             </div>

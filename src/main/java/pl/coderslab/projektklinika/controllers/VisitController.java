@@ -53,6 +53,7 @@ public class VisitController {
         model.addAttribute("visits", visits);
         return "visits";
     }
+
     @GetMapping(value = "/doktor/wizyty/aktualne")
     public String displayFutureDoctorVisits(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         User doctor = userService.findByEmail(userDetails.getUsername());
@@ -65,6 +66,30 @@ public class VisitController {
     @GetMapping(value="/doktor/wizyty")
     public String displayDoctorVisits(){
         return "redirect:/doktor/wizyty/aktualne";
+    }
+
+
+    @GetMapping(value = "/pacjent/wizyty/wszystkie")
+    public String displayAllPatientVisits(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        User patient = userService.findByEmail(userDetails.getUsername());
+        model.addAttribute("title", "Wszystkie Wizyty");
+        List<Visit> visits = visitRepository.getAllPatientVisits(patient);
+        model.addAttribute("visits", visits);
+        return "patient-visits";
+    }
+
+    @GetMapping(value = "/pacjent/wizyty/aktualne")
+    public String displayFuturePatientVisits(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        User patient = userService.findByEmail(userDetails.getUsername());
+        model.addAttribute("title", "Nadchodzące Wizyty");
+        List<Visit> visits = visitRepository.getFuturePatientVisits(patient);
+        model.addAttribute("visits", visits);
+        return "patient-visits";
+    }
+
+    @GetMapping(value="/pacjent/wizyty")
+    public String displayPatientVisits(){
+        return "redirect:/pacjent/wizyty/aktualne";
     }
 
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.coderslab.projektklinika.components.DrugCart;
+import pl.coderslab.projektklinika.models.Drug;
 import pl.coderslab.projektklinika.models.EReceipt;
 import pl.coderslab.projektklinika.models.User;
 import pl.coderslab.projektklinika.repositories.DrugRepository;
@@ -47,5 +48,12 @@ public class PatientController {
         List<EReceipt> eReceiptList = receiptRepository.findByPatient(patient);
         model.addAttribute("eReceiptList", eReceiptList);
         return "patient-receipts";
+    }
+
+    @GetMapping(value = "/apteka")
+    public String getPharmacy(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        List<Drug> drugs = drugRepository.getAllDrugs();
+        model.addAttribute("drugs", drugs);
+        return "pharmacy";
     }
 }
