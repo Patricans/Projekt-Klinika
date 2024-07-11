@@ -137,7 +137,7 @@
                         <a class="nav-link" href="/doktor/wizyty">Wizyty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pacjenci</a>
+                        <a class="nav-link" href="/doktor/pacjenci">Pacjenci</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dyzury">Grafik</a>

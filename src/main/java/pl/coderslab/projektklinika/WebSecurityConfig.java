@@ -53,7 +53,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/patient/**").hasAnyRole("PATIENT")
                         .requestMatchers("/nurse/**").hasAnyRole("NURSE")
                         .requestMatchers("/doctor/**").hasAnyRole("DOCTOR")
-                        .requestMatchers("/doktor/**").hasAnyRole("DOCTOR")
+                        .requestMatchers("/doktor/**", "/doctor-*.jsp").hasAnyRole("DOCTOR")
                         .requestMatchers("/visits.jsp", "/visits-details.jsp").hasAnyRole("DOCTOR")
                         .requestMatchers("/logowanie","/logowanie.jsp").permitAll()
                         .requestMatchers("/dyzury", "/schedule.jsp", "/dyzury.jsp").hasAnyRole("NURSE","DOCTOR")

@@ -14,10 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.coderslab.projektklinika.components.DrugCart;
 import pl.coderslab.projektklinika.forms.AddDrugToCartForm;
 import pl.coderslab.projektklinika.models.*;
-import pl.coderslab.projektklinika.repositories.DrugRepository;
-import pl.coderslab.projektklinika.repositories.ReceiptDrugRepository;
-import pl.coderslab.projektklinika.repositories.ReceiptRepository;
-import pl.coderslab.projektklinika.repositories.VisitRepository;
+import pl.coderslab.projektklinika.repositories.*;
 import pl.coderslab.projektklinika.services.SecurityService;
 import pl.coderslab.projektklinika.services.UserService;
 
@@ -145,4 +142,16 @@ public class VisitController {
         return "redirect:/doktor/wizyta/" + id;
 
     }
+    @Autowired
+    private UserRepository userRepository;
+    @GetMapping(value="/doktor/pacjenci")
+    public String displayDoctorPatients(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        User doctor = userService.findByEmail(userDetails.getUsername());
+        List<User> patients = userRepository.findDoctorPatients(doctor);
+        model.addAttribute("patients", patients);
+        model.addAttribute("visitRepository", visitRepository);
+        model.addAttribute("doctor", doctor);
+        return "doctor-patients";
+    }
+
 }

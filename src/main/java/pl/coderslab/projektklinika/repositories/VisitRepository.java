@@ -19,4 +19,13 @@ public interface VisitRepository extends CrudRepository<Visit, Integer> {
 
     @Query("SELECT v FROM Visit v WHERE v.patient = :patient ORDER BY v.startDate DESC")
     List<Visit> getPatientVisits(User patient);
+
+    @Query("SELECT v FROM Visit v WHERE v.patient = :patient AND v.doctor = :doctor ORDER BY v.startDate DESC LIMIT 1")
+    Visit getLastVisit(User patient, User doctor);
+
+    @Query("SELECT COUNT(v) FROM Visit v WHERE v.patient = :patient")
+    int getVisitCount(User patient);
+
+    @Query("SELECT COUNT(v) FROM Visit v WHERE v.patient = :patient AND v.doctor = :doctor")
+    int getVisitCount(User patient, User doctor);
 }
