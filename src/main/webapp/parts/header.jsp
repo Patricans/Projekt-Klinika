@@ -12,6 +12,11 @@
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+
+
 </head>
 <body class="d-flex flex-column h-100 flex-nowrap">
 <main class="flex-shrink-0">
@@ -30,7 +35,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/lokalizacja">Lokalizacja</a>
                 </li>
-                </ul> <ul class="navbar-nav ml-auto mb-2">
+            </ul>
+            <ul class="navbar-nav ml-auto mb-2">
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -145,5 +151,5 @@
     </nav>
 </sec:authorize>
 <c:if test="${not empty flashMessage}">
-    <div class="alert ${flashClass}" >${flashMessage}</div>
+    <div class="alert ${flashClass}">${flashMessage}</div>
 </c:if>

@@ -36,7 +36,7 @@ describe drugs;
 describe receipt_drugs;
 
 alter table receipt_drugs add column ereceipt_id int not null;
-alter table receipt_drugs add foreign key (ereceipt_id) references e_receipt(id)
+alter table receipt_drugs add foreign key (ereceipt_id) references e_receipt(id);
 
 update users set password = (SELECT password from users where id = 1 limit 1) where id != 1;
 
@@ -63,3 +63,15 @@ insert into receipt_drugs(drug_id, amount, expiration_date, bought, last_purchas
 
 select * from receipt_drugs;
 select * from e_receipt;
+-- konwersja bazy danych do utf8
+ALTER DATABASE klinika CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE users CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE visits CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+describe e_receipt;
+
+update users u set u.password = (SELECT u1.password FROM users u1 WHERE u1.email='doktor@gmail.com' limit 1) where id > 10000;
+
+select u.email,count(v.id) cnt from users u join visits v on u.id = v.doctor_id group by u.email order by cnt desc;
+
+update users set status='ACTIVE' where email='hubertsieja@example.org';

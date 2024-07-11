@@ -1,11 +1,10 @@
 
 package pl.coderslab.projektklinika.models;
 
-        import jakarta.persistence.*;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-        import java.util.Date;
+import java.util.Date;
 import java.util.List;
 
         @Entity
@@ -13,30 +12,30 @@ import java.util.List;
 @Getter
 public class EReceipt {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-            @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     @Setter
     private User patient;
 
-            @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = false)
     @Setter
     private User doctor;
 
-            @Column(name="date", columnDefinition = "DATETIME", nullable = false)
+    @Column(name="date", columnDefinition = "DATETIME", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @Setter
     private Date date;
 
-            @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "visit_id", nullable = false)
     @Setter
     private Visit visit;
 
-            @OneToMany
+    @OneToMany
     @JoinColumn(name="ereceipt_id")
     public List<ReceiptDrug> receiptDrugs;
     }

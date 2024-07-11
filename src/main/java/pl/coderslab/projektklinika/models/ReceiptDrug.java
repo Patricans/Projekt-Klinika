@@ -9,8 +9,9 @@ import java.util.Date;
 @Entity
 @Table(name = "receipt_drugs")
 public class ReceiptDrug {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne

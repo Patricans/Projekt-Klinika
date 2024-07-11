@@ -14,5 +14,12 @@
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 
+<script
+       src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+       integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+       crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+
 </body>
 </html>

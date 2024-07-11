@@ -18,19 +18,21 @@
         </div>
         <div class="col">
             <h2>Recepta</h2>
-            <form>
+            <form:form method="post" modelAttribute="addDrugToCardForm"
+                       action="/doktor/wizyta/${visit.id}/dodaj_do_recepty">
                 <div class="mb-3">
-                    <label for="Lek" class="form-label">Lek </label>
-                    <select id="Lek" class="form-select form-select-lg" aria-label=".form-select-sm example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <spring:bind path="drug">
+                        <label for="drug" class="form-label">Lek </label>
+                        <form:select path="drug" cssClass="selectpicker" data-live-search="true">
+                            <form:options items="${drugs}" itemValue="id" itemLabel="name"/>
+                        </form:select>
+                    </spring:bind>
                 </div>
                 <div class="mb-3">
-                    <label for="Amount" class="form-label">Amount </label>
-                    <input class="form-control" id="Amount" type="number">
+                    <spring:bind path="quantity">
+                        <label for="quantity" class="form-label">Ilość opakowań</label>
+                        <form:input path="quantity" cssClass="form-control"/>
+                    </spring:bind>
                 </div>
                 <div class="btn-group w-100" role="group">
                     <button class="btn btn-primary  py-2 mx-2" type="submit">Dodaj do recepty.</button>
@@ -45,30 +47,28 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>APAP</td>
-                        <td>3</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>xDXD</td>
-                        <td>2</td>
-                    </tr>
+                    <c:forEach items="${drugCart.drugs}" var="e" varStatus="i">
+                        <tr>
+                            <th scope="row">${i.index+1}</th>
+                            <td>${e.drug.name}</td>
+                            <td>${e.amount}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
-                <div class="btn-group w-100" role="group">
-                    <button class="btn btn-success  py-2 mx-2" type="submit">Wystaw recepte.</button>
-                </div>
-            </form>
+            </form:form>
+            <form:form method="post" action="/doktor/wizyta/${visit.id}/wystaw_recepte">
+            <div class="btn-group w-100" role="group">
+                <button class="btn btn-success  py-2 mx-2" type="submit">Wystaw recepte.</button>
+            </div>
+            </form:form>
 
         </div>
         <div class="col">
             <h2>Komentarz</h2>
-            <form:form method="POST" modelAttribute="visitComment">
+            <form:form method="POST" modelAttribute="visitComment" action="/doktor/wizyta/notatka/${visit.id}">
                 <spring:bind path="comment">
-                <form:textarea path="comment" class="w-100" rows="5"/>
+                    <form:textarea path="comment" class="w-100" rows="5" placeholder="Wpisz dawkowanie leków i przebieg wizyty"/>
                 </spring:bind>
                 <div class="btn-group w-100" role="group">
                     <button class="btn btn-success  py-2 mx-2" type="submit">Zakomentuj.</button>
@@ -86,8 +86,6 @@
                                 <h5 class="mb-1">${i.patient.first_name} ${i.patient.last_name}</h5>
                                 <small>
                                     <fmt:formatDate value="${i.startDate}" pattern="YYYY-MM-dd HH:mm"/>
-                                    -
-                                    <fmt:formatDate value="${i.endDate}" pattern="YYYY-MM-dd HH:mm"/>
                                 </small>
                             </div>
                             <p class="mb-1">
@@ -108,24 +106,19 @@
                                     <c:otherwise>
                                         <c:forEach items="${i.EReceipts}" var="er">
                                             <c:forEach items="${er.receiptDrugs}" var="dr">
-                                                ${dr.drug.name} - ${dr.amount} opakowań.
+                                                ${dr.drug.name} - ${dr.amount} opakowań.<br/>
                                             </c:forEach>
                                         </c:forEach>
                                         Wystawiono recepte na ${i.receiptDrugCount} leki.
                                     </c:otherwise>
                                 </c:choose>
                             </small>
+                            <h5 class="mb-1">${i.doctor.first_name} ${i.doctor.last_name}</h5>
                         </a>
                     </c:forEach>
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 </div>
-
-
 <%@ include file="parts/footer.jsp" %>
