@@ -4,6 +4,10 @@
 
 <div class="container">
     <h1>Twoje wizyty</h1>
+    <div class="btn-group">
+        <a href="/doktor/wizyty/wszystkie" class ="btn btn-info" >Wszystkie Wizyty</a>
+        <a href="/doktor/wizyty/aktualne" class ="btn btn-primary" >Nadchodzące Wizyty</a>
+    </div>
     <div class="list-group">
         <c:forEach items="${visits}" var="i">
             <a href="/doktor/wizyta/${i.id}" class="list-group-item list-group-item-action">

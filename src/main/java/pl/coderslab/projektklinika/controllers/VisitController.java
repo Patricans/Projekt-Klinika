@@ -48,14 +48,29 @@ public class VisitController {
     @Autowired
     private ReceiptDrugRepository receiptDrugRepository;
 
-    @GetMapping(value = "/doktor/wizyty")
-    public String displayDoctorVisits(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+    @GetMapping(value = "/doktor/wizyty/wszystkie")
+    public String displayAllDoctorVisits(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         User doctor = userService.findByEmail(userDetails.getUsername());
-        model.addAttribute("title", "Wizyty");
-        List<Visit> visits = visitRepository.getDoctorVisits(doctor);
+        model.addAttribute("title", "Wszystkie Wizyty");
+        List<Visit> visits = visitRepository.getAllDoctorVisits(doctor);
         model.addAttribute("visits", visits);
         return "visits";
     }
+    @GetMapping(value = "/doktor/wizyty/aktualne")
+    public String displayFutureDoctorVisits(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        User doctor = userService.findByEmail(userDetails.getUsername());
+        model.addAttribute("title", "Nadchodzące Wizyty");
+        List<Visit> visits = visitRepository.getFutureDoctorVisits(doctor);
+        model.addAttribute("visits", visits);
+        return "visits";
+    }
+
+    @GetMapping(value="/doktor/wizyty")
+    public String displayDoctorVisits(){
+        return "redirect:/doktor/wizyty/aktualne";
+    }
+
+
     @GetMapping(value="/doktor/wizyta/{id}")
     public String displayDoctorVisit(Model model,@AuthenticationPrincipal UserDetails userDetails, @PathVariable int id) {
         User doctor = userService.findByEmail(userDetails.getUsername());
