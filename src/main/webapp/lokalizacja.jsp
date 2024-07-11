@@ -9,7 +9,7 @@
                 style="border: 1px solid black; margin:auto; display:block;"></iframe>
     </div>
     <small >
-        <a href="https://www.openstreetmap.org/#map=18/54.18754/16.18413">Wyświetl większą mapę</a>
+        <a target="_blank" href="https://www.openstreetmap.org/#map=18/54.18754/16.18413">Wyświetl większą mapę</a>
     </small>
 </div>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>

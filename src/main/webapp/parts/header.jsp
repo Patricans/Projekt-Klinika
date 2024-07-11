@@ -22,7 +22,7 @@
 <main class="flex-shrink-0">
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">System zarządzania kliniką</a>
+        <a class="navbar-brand" href="/home">System zarządzania kliniką</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="mainnav">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Strona główna kliniki</a>
+                    <a class="nav-link" href="/home">Strona główna kliniki</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/lokalizacja">Lokalizacja</a>
@@ -135,9 +135,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/doktor/wizyty">Wizyty</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Recepty</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pacjenci</a>
