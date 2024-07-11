@@ -82,7 +82,7 @@
                         <a class="nav-link" href="#">Moje wizyty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Moje recepty</a>
+                        <a class="nav-link" href="/pacjent/recepty">Moje recepty</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Apteka</a>

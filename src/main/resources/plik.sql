@@ -76,3 +76,7 @@ select u.email,count(v.id) cnt from users u join visits v on u.id = v.doctor_id 
 
 update users set status='ACTIVE' where email='hubertsieja@example.org';
 update visits v set v.start_date = v.start_date + intervaL 10 YEAR WHERE doctor_id = (SELECT u.id from users u where u.email = 'hubertsieja@example.org' limit 1);
+
+SELECT u.email, count(e.id) cnt from users u join e_receipt e on e.patient_id = u.id group by u.email order by cnt;
+
+UPDATE users set status = 'ACTIVE' where email ='tszostak@example.net';

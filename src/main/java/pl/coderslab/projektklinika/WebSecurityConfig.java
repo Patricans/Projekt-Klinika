@@ -50,8 +50,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/admin/**").hasAnyRole("ADMIN")
-                        .requestMatchers("/patient/**").hasAnyRole("PATIENT")
-                        .requestMatchers("/nurse/**").hasAnyRole("NURSE")
+                        .requestMatchers("/patient/**","/patient-*.jsp").hasAnyRole("PATIENT")
+                        .requestMatchers("/pacjent/**","/pacjent-*.jsp").hasAnyRole("PATIENT")
+                        .requestMatchers("/nurse/**", "/nurse-*.jsp").hasAnyRole("NURSE")
                         .requestMatchers("/doctor/**").hasAnyRole("DOCTOR")
                         .requestMatchers("/doktor/**", "/doctor-*.jsp").hasAnyRole("DOCTOR")
                         .requestMatchers("/visits.jsp", "/visits-details.jsp").hasAnyRole("DOCTOR")
