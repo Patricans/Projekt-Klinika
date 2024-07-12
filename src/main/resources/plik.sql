@@ -80,3 +80,45 @@ update visits v set v.start_date = v.start_date + intervaL 10 YEAR WHERE doctor_
 SELECT u.email, count(e.id) cnt from users u join e_receipt e on e.patient_id = u.id group by u.email order by cnt;
 
 UPDATE users set status = 'ACTIVE' where email ='tszostak@example.net';
+
+CREATE TABLE user_score(id INT AUTO_INCREMENT PRIMARY KEY, user_id INT NOT NULL, score INT NOT NULL);
+alter table user_score add foreign key (user_id) REFERENCES users(id);
+create table doctor_specialties(id INT AUTO_INCREMENT PRIMARY KEY, description TEXT NOT NULL);
+insert into doctor_specialties(description) values
+                                                ('chirurgia klatki piersiowej'),
+                                                ('chirurgia naczyniowa'),
+                                                ('chirurgia ogólna'),
+                                                ('chirurgia onkologiczna'),
+                                                ('chirurgia plastyczna.'),
+                                                ('wewnętrznych:'),
+                                                ('alergologia'),
+                                                ('angiologia'),
+                                                ('balneologia i medycyna fizykalna'),
+                                                ('choroby płuc'),
+                                                ('choroby wewnętrzne'),
+                                                ('diabetologia'),
+                                                ('endokrynologia'),
+                                                ('gastroenterologia'),
+                                                ('geriatria'),
+                                                ('hematologia'),
+                                                ('immunologia kliniczna'),
+                                                ('kardiologia'),
+                                                ('medycyna lotnicza'),
+                                                ('medycyna morska i tropikalna'),
+                                                ('medycyna paliatywna'),
+                                                ('medycyna pracy'),
+                                                ('nefrologia'),
+                                                ('onkologia kliniczna'),
+                                                ('reumatologia'),
+                                                ('toksykologia kliniczna'),
+                                                ('transfuzjologia kliniczna');
+
+
+alter table users add speciality_id INT NULL;
+alter table users add foreign key(speciality_id) references doctor_specialties(id);
+select count(*) from doctor_specialties;
+update users set users.speciality_id = NULL;
+update users set users.speciality_id = (id%27)+1 where users.role IN('DOCTOR');
+
+alter table user_score add issuer_id int not null;
+alter table user_score add foreign key(issuer_id) references users(id);

@@ -35,6 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/lokalizacja">Lokalizacja</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/personel">Personel Kliniki</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto mb-2">
                 <sec:authorize access="isAuthenticated()">

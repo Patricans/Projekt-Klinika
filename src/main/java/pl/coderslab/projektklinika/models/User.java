@@ -81,4 +81,10 @@ public class User {
         NURSE,
         ADMIN
     }
+
+    @ManyToOne
+    @JoinColumn(name="speciality_id",nullable = true)
+    @Getter
+    @Setter
+    private DoctorSpeciality doctorSpecialty;
 }
