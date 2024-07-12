@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import pl.coderslab.projektklinika.models.User;
 import pl.coderslab.projektklinika.models.Visit;
 
+import java.util.Date;
 import java.util.List;
 
 public interface VisitRepository extends CrudRepository<Visit, Integer> {
@@ -34,4 +35,7 @@ public interface VisitRepository extends CrudRepository<Visit, Integer> {
 
     @Query("SELECT v FROM Visit v WHERE v.patient = :patient AND v.startDate + 1 hour >= NOW() ORDER BY v.startDate ASC")
     List<Visit> getFuturePatientVisits(User patient);
+
+    @Query("SELECT v FROM Visit v WHERE v.doctor = :doctor AND v.startDate >= :start AND v.startDate + v.duration minute <= :end")
+    Visit getVisitInTimeSlot(User doctor, Date start, Date end);
 }

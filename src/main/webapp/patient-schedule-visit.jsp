@@ -32,6 +32,22 @@
             </div>
             </form:form>
         </c:when>
+        <c:when test="${scheduleStep == 3}">
+            <h4>Wybrany lekarz: ${doctor.displayName}</h4>
+            <small>specjalizacja: ${doctor.doctorSpecialty.description}</small><br/>
+            <form:form modelAttribute="selectedTimeslot" action="/pacjent/umow_wizyte/3">
+                <form:hidden path="doctor" value="${doctor.id}" />
+                <spring:bind path="selectedTimeslot">
+                    <label for="selectedTimeslot" class="form-label">Lekarz: </label>
+                    <form:select path="selectedTimeslot" cssClass="selectpicker" data-live-search="true">
+                        <form:options items="${availableTimeslots}" itemValue="key" itemLabel="displayName"/>
+                    </form:select>
+                </spring:bind>
+                <div class="btn-group">
+                    <input type="submit" class="btn btn-success" value="Umów się na wizytę"/>
+                </div>
+            </form:form>
+        </c:when>
     </c:choose>
 </div>
 
