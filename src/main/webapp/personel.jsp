@@ -23,11 +23,13 @@
                                     <c:forEach var="i" begin="1" end="5" step="1">
                                         <c:choose>
                                             <c:when test="${lastScore != null and lastScore.score == 6-i}">
-                                                <input value="${6-i}" name="score" id="star${doctor.id}-${6-i}" type="radio"
+                                                <input value="${6-i}" name="score" id="star${doctor.id}-${6-i}"
+                                                       type="radio"
                                                        onchange="this.form.submit()" checked="checked">
                                             </c:when>
                                             <c:otherwise>
-                                                <input value="${6-i}" name="score" id="star${doctor.id}-${6-i}" type="radio"
+                                                <input value="${6-i}" name="score" id="star${doctor.id}-${6-i}"
+                                                       type="radio"
                                                        onchange="this.form.submit()">
                                             </c:otherwise>
                                         </c:choose>
@@ -64,7 +66,7 @@
                                 ${nurse.doctorSpecialty.description}
                             </c:if>
                         </div>
-                         <sec:authorize access="isAuthenticated()">
+                        <sec:authorize access="isAuthenticated()">
                             <c:set var="lastScore" value="${userScoreRepository.getUserScore(user, nurse)}"/>
                             <form:form modelAttribute="rateDoctorForm" action="/personel/ocena">
                                 <form:hidden path="personnel_id" value="${nurse.id}"/>
@@ -72,11 +74,13 @@
                                     <c:forEach var="i" begin="1" end="5" step="1">
                                         <c:choose>
                                             <c:when test="${lastScore != null and lastScore.score == 6-i}">
-                                                <input value="${6-i}" name="score" id="star${nurse.id}-${6-i}" type="radio"
+                                                <input value="${6-i}" name="score" id="star${nurse.id}-${6-i}"
+                                                       type="radio"
                                                        onchange="this.form.submit()" checked="checked">
                                             </c:when>
                                             <c:otherwise>
-                                                <input value="${6-i}" name="score" id="star${nurse.id}-${6-i}" type="radio"
+                                                <input value="${6-i}" name="score" id="star${nurse.id}-${6-i}"
+                                                       type="radio"
                                                        onchange="this.form.submit()">
                                             </c:otherwise>
                                         </c:choose>

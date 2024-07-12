@@ -20,4 +20,9 @@ public interface UserRepository extends CrudRepository <User, Long>{
 
     @Query("SELECT u FROM User u WHERE u.role = 'NURSE' AND u.status = 'ACTIVE'")
     List<User> findAllActiveNurses();
+
+    @Query("SELECT u FROM User u WHERE u.role = 'DOCTOR' AND u.doctorSpecialty.id =:speciality")
+    List<User> findBySpeciality(Integer speciality);
+
+
 }

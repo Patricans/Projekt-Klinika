@@ -79,7 +79,7 @@
                         <a class="nav-link" href="/profile">Twój profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Umów się na wizytę</a>
+                        <a class="nav-link" aria-current="page" href="/pacjent/umow_wizyte">Umów się na wizytę</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pacjent/wizyty/aktualne">Moje wizyty</a>
