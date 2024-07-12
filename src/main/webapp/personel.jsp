@@ -16,29 +16,23 @@
                             </c:if>
                         </div>
                         <sec:authorize access="isAuthenticated()">
+                            <c:set var="lastScore" value="${userScoreRepository.getUserScore(user, doctor)}"/>
                             <form:form modelAttribute="rateDoctorForm" action="/personel/ocena">
-                                <form:hidden path="personnel_id" value="${doctor.id}"/>
+                                <form:hidden path="personnel_id" value="${doctor.id}"/> <!-- działa to działa -->
                                 <div class="rating">
-                                    <input value="5" name="score" id="star${doctor.id}-5" type="radio"
-                                           onchange="this.form.submit()"
-                                    >
-                                    <label for="star${doctor.id}-5"></label>
-                                    <input value="4" name="score" id="star${doctor.id}-4" type="radio"
-                                           onchange="this.form.submit()"
-                                    >
-                                    <label for="star${doctor.id}-4"></label>
-                                    <input value="3" name="score" id="star${doctor.id}-3" type="radio"
-                                           onchange="this.form.submit()"
-                                    >
-                                    <label for="star${doctor.id}-3"></label>
-                                    <input value="2" name="score" id="star${doctor.id}-2" type="radio"
-                                           onchange="this.form.submit()"
-                                    >
-                                    <label for="star${doctor.id}-2"></label>
-                                    <input value="1" name="score" id="star${doctor.id}-1" type="radio"
-                                           onchange="this.form.submit()"
-                                    >
-                                    <label for="star${doctor.id}-1"></label>
+                                    <c:forEach var="i" begin="1" end="5" step="1">
+                                        <c:choose>
+                                            <c:when test="${lastScore != null and lastScore.score == 6-i}">
+                                                <input value="${6-i}" name="score" id="star${doctor.id}-${6-i}" type="radio"
+                                                       onchange="this.form.submit()" checked="checked">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input value="${6-i}" name="score" id="star${doctor.id}-${6-i}" type="radio"
+                                                       onchange="this.form.submit()">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <label for="star${doctor.id}-${6-i}"></label>
+                                    </c:forEach>
                                 </div>
                             </form:form>
                         </sec:authorize>
@@ -50,7 +44,8 @@
                                 -.-
                             </c:when>
                             <c:otherwise>
-                                <fmt:formatNumber value="${score}" pattern="#.#" minFractionDigits="1" maxFractionDigits="1" />
+                                <fmt:formatNumber value="${score}" pattern="#.#" minFractionDigits="1"
+                                                  maxFractionDigits="1"/>
                             </c:otherwise>
                         </c:choose>
                         </span>
@@ -69,14 +64,37 @@
                                 ${nurse.doctorSpecialty.description}
                             </c:if>
                         </div>
-                        <c:set value="${userScoreRepository.getAverageScore(doctor)}" var="score"/>
+                         <sec:authorize access="isAuthenticated()">
+                            <c:set var="lastScore" value="${userScoreRepository.getUserScore(user, nurse)}"/>
+                            <form:form modelAttribute="rateDoctorForm" action="/personel/ocena">
+                                <form:hidden path="personnel_id" value="${nurse.id}"/>
+                                <div class="rating">
+                                    <c:forEach var="i" begin="1" end="5" step="1">
+                                        <c:choose>
+                                            <c:when test="${lastScore != null and lastScore.score == 6-i}">
+                                                <input value="${6-i}" name="score" id="star${nurse.id}-${6-i}" type="radio"
+                                                       onchange="this.form.submit()" checked="checked">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input value="${6-i}" name="score" id="star${nurse.id}-${6-i}" type="radio"
+                                                       onchange="this.form.submit()">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <label for="star${nurse.id}-${6-i}"></label>
+                                    </c:forEach>
+                                </div>
+                            </form:form>
+                        </sec:authorize>
+
+                        <c:set value="${userScoreRepository.getAverageScore(nurse)}" var="score"/>
                         <span class="badge bg-primary rounded-pill">
                         <c:choose>
                             <c:when test="${score == null}">
                                 -.-
                             </c:when>
                             <c:otherwise>
-                                <fmt:formatNumber value="${score}" pattern="#.#" minFractionDigits="1" maxFractionDigits="1" />
+                                <fmt:formatNumber value="${score}" pattern="#.#" minFractionDigits="1"
+                                                  maxFractionDigits="1"/>
                             </c:otherwise>
                         </c:choose>
                         </span>
