@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" language="java" %>
-</main>
-<footer class="footer mt-auto py-3 bg-body-tertiary">
+</main >
+<footer class="footer mt-auto py-3 bg-body-tertiary" >
     <div class="container">
         <div class="float-end">
             <a class="mx-3" href="#TODO">Dane kontaktowe</a>

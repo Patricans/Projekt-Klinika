@@ -5,13 +5,13 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java"  %>
 <%@ include file="parts/header.jsp" %>
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+<div class="d-flex flex-column flex-shrink-0 p-3">
     <div class="container">
         <h1 style="margin-top: 50px;">Rejestracja użytkownika</h1>
         <div class="container form-register">
             <form:form method="POST" modelAttribute="userForm">
             <div class="mb-3">
-                <bs:bsinput type="email" name="email" required="true" placeholder="adam.kowalski@gmail.com"
+                <bs:bsinput type="email" name="email" required="true" placeholder="twoj.email@.com"
                             label="Adres email"/>
             </div>
             <div class="mb-3">

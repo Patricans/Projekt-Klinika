@@ -122,3 +122,8 @@ update users set users.speciality_id = (id%27)+1 where users.role IN('DOCTOR');
 
 alter table user_score add issuer_id int not null;
 alter table user_score add foreign key(issuer_id) references users(id);
+
+delete from receipt_drugs where drug_id >= 10042;
+delete from drugs_active_ingredients where drug_id >= 10042;
+delete from drugs where id >= 10042;
+delete from active_ingredients where id >= 10042;

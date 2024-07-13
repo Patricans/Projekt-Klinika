@@ -40,8 +40,26 @@
                         </sec:authorize>
 
                         <c:set value="${userScoreRepository.getAverageScore(doctor)}" var="score"/>
-                        <span class="badge bg-primary rounded-pill">
                         <c:choose>
+                            <c:when test="${score == null}">
+                                <c:set var="badgeClass" value="bg-primary"/>
+                            </c:when>
+                            <c:when test="${score >= 4.5}">
+                                <c:set var="badgeClass" value="bg-success"/>
+                            </c:when>
+                            <c:when test="${score >= 3}">
+                                <c:set var="badgeClass" value="bg-info"/>
+                            </c:when>
+                            <c:when test="${score >= 2}">
+                                <c:set var="badgeClass" value="bg-warning"/>
+                            </c:when>
+                            <c:otherwise>
+                                <c:set var="badgeClass" value="bg-danger"/>
+                            </c:otherwise>
+                        </c:choose>
+                        <span class="badge ${badgeClass} rounded-pill">
+                        <c:choose>
+
                             <c:when test="${score == null}">
                                 -.-
                             </c:when>
@@ -91,7 +109,24 @@
                         </sec:authorize>
 
                         <c:set value="${userScoreRepository.getAverageScore(nurse)}" var="score"/>
-                        <span class="badge bg-primary rounded-pill">
+                        <c:choose>
+                            <c:when test="${score == null}">
+                                <c:set var="badgeClass" value="bg-primary"/>
+                            </c:when>
+                            <c:when test="${score >= 4.5}">
+                                <c:set var="badgeClass" value="bg-success"/>
+                            </c:when>
+                            <c:when test="${score >= 3}">
+                                <c:set var="badgeClass" value="bg-info"/>
+                            </c:when>
+                            <c:when test="${score >= 2}">
+                                <c:set var="badgeClass" value="bg-warning"/>
+                            </c:when>
+                            <c:otherwise>
+                                <c:set var="badgeClass" value="bg-danger"/>
+                            </c:otherwise>
+                        </c:choose>
+                        <span class="badge ${badgeClass} rounded-pill">
                         <c:choose>
                             <c:when test="${score == null}">
                                 -.-

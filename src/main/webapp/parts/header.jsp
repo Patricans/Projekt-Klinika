@@ -113,7 +113,7 @@
                         <a class="nav-link" href="/profile">Twój profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Magazyn Apteki</a>
+                        <a class="nav-link" href="/apteka">Magazyn Apteki</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dyzury">Grafik</a>
@@ -154,7 +154,7 @@
 </sec:authorize>
 
 <sec:authorize access="!isAuthenticated()">
-    <div style="margin-top:55px"></div>
+    <div style="margin-top:85px"></div>
 </sec:authorize>
 
 <c:if test="${not empty flashMessage}">

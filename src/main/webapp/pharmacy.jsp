@@ -21,13 +21,13 @@
                 <td>
                     <c:choose>
                         <c:when test="${i.count == 0}"><span class="badge text-bg-danger">Brak leku</span></c:when>
-                        <c:when test="${i.count < 5}"><span class="badge text-bg-warning">Mała ilość</span></c:when>
-                        <c:when test="${i.count < 10}"><span class="badge text-bg-info">Średnia ilość</span></c:when>
+                        <c:when test="${i.count < 10}"><span class="badge text-bg-warning">Mała ilość</span></c:when>
+                        <c:when test="${i.count < 20}"><span class="badge text-bg-info">Średnia ilość</span></c:when>
                         <c:otherwise><span class="badge text-bg-success">Duża ilość</span></c:otherwise>
                     </c:choose>
                 </td>
+                <td> </td>
             </tr>
-
         </c:forEach>
         </tbody>
     </table>

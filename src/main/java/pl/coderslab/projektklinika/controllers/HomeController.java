@@ -35,7 +35,7 @@ public class HomeController {
 
     @RequestMapping(value = "/")
     public String index() {
-        return "redirect:/logowanie";
+        return "redirect:/home";
     }
 
     @RequestMapping(value = "/home")
