@@ -18,11 +18,13 @@
 
 
 </head>
-<body class="d-flex flex-column h-100 flex-nowrap">
+<body class="d-flex flex-column h-100 flex-nowrap" style="background: radial-gradient(#201f1f, black);">
 <main class="flex-shrink-0">
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home">System zarządzania kliniką</a>
+        <a class="navbar-brand" href="/home">
+        <img src ="${pageContext.request.contextPath}/img/logo.png" width="200" height="50" class="d-inline-block align-top" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="mainnav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -150,6 +152,11 @@
         </div>
     </nav>
 </sec:authorize>
+
+<sec:authorize access="!isAuthenticated()">
+    <div style="margin-top:55px"></div>
+</sec:authorize>
+
 <c:if test="${not empty flashMessage}">
     <div class="alert ${flashClass}">${flashMessage}</div>
 </c:if>

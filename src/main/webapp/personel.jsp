@@ -2,7 +2,7 @@
 <%@ include file="parts/header.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+<div class="d-flex flex-column flex-shrink-0 p-3">
     <div class="container">
         <h1>Lekarze</h1>
         <div class="container">

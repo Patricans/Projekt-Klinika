@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<div class="container">
+<div class="container" style="text-align-last: center; margin-top: 140px !important;">
     <c:choose>
         <c:when test="${scheduleStep == 1}">
             <form:form modelAttribute="selectSpeciality" action="/pacjent/umow_wizyte/1">

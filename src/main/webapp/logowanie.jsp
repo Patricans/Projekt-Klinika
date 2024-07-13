@@ -2,7 +2,7 @@
 <%@ include file="parts/header.jsp" %>
 <div class="container w-100">
     <form method="POST" action="${contextPath}/logowanie" class="form-signin" style="margin-left:auto; margin-right:auto; margin-top:200px">
-        <img class="mb-4" src="https://dummyimage.com/100x100/d42dd4/0011ff" alt="" width="72" height="57">
+        <img class="mb-4" src="https://www.freeiconspng.com/thumbs/doctor-logo/doctor-symbol-universal-png-2.png" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Logowanie do systemu</h1>
         <div class="form-group ${error != null ? 'has-error': ''}">
             <span>${message}</span>
